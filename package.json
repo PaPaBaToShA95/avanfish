@@ -2,7 +2,10 @@
   "name": "avanfish",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+  "homepage": "https://papabatosha95.github.io/avanfish",
+"scripts": {
+    "predeploy": "npm run build",
+    "deploy": "next export && gh-pages -d out",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
