@@ -1,0 +1,19 @@
+1:"$Sreact.fragment"
+2:I[7555,[],""]
+3:I[1901,["39","static/chunks/app/error-2c10c7e9777d79de.js"],"default"]
+4:I[1295,[],""]
+5:I[9665,[],"OutletBoundary"]
+8:I[4911,[],"AsyncMetadataOutlet"]
+a:I[9665,[],"ViewportBoundary"]
+c:I[9665,[],"MetadataBoundary"]
+e:I[6614,[],""]
+:HL["/avanfish/_next/static/css/3bdfa2c8ea13c600.css","style"]
+0:{"P":null,"b":"e8TaMgSNFa9TJ36Z6rU8o","p":"/avanfish","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/avanfish/_next/static/css/3bdfa2c8ea13c600.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"uk","children":["$","body",null,{"className":"min-h-screen flex flex-col","children":[["$","header",null,{"className":"bg-blue-800 text-white p-4","children":["$","h1",null,{"className":"text-xl font-bold","children":"Аванфіш"}]}],["$","main",null,{"className":"flex-grow","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$3","errorStyles":[],"errorScripts":[],"template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"h-screen flex items-center justify-center flex-col","children":[["$","h2",null,{"className":"text-4xl font-bold","children":"404 – Сторінку не знайдено"}],["$","p",null,{"children":"На жаль, такої сторінки не існує."}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"bg-gray-800 text-white p-4 mt-auto text-center","children":["$","p",null,{"children":["© ",2025," Аванфіш. Всі права захищено."]}]}]]}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","div",null,{"className":"p-4","children":[["$","h1",null,{"className":"text-3xl font-bold","children":"Головна сторінка"}],["$","p",null,{"children":"Тут буде головний контент сайту."}]]}],null,["$","$L5",null,{"children":["$L6","$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","WCxzQSFk4YKbG2zmfFPQ7v",{"children":[["$","$La",null,{"children":"$Lb"}],null]}],["$","$Lc",null,{"children":"$Ld"}]]}],false]],"m":"$undefined","G":["$e","$undefined"],"s":false,"S":true}
+f:"$Sreact.suspense"
+10:I[4911,[],"AsyncMetadata"]
+d:["$","div",null,{"hidden":true,"children":["$","$f",null,{"fallback":null,"children":["$","$L10",null,{"promise":"$@11"}]}]}]
+7:null
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:null
+9:{"metadata":[["$","title","0",{"children":"Аванфіш – Риболовне озеро"}],["$","meta","1",{"name":"description","content":"Сайт риболовного озера Аванфіш. Тут буде опис послуг, ціни та контакти."}],["$","link","2",{"rel":"icon","href":"/avanfish/favicon.ico","type":"image/x-icon","sizes":"16x16"}]],"error":null,"digest":"$undefined"}
+11:{"metadata":"$9:metadata","error":null,"digest":"$undefined"}
