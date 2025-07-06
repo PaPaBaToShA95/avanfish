@@ -11,7 +11,7 @@ const navItems = [
     { href: '/lake-sectors', label: 'Мапа Озера' },
     { href: '/trophies', label: 'Трофеї' },
     { href: '/contacts', label: 'Контакти' },
-    { href: '/prices', label: 'Ціни' },
+    { href: '/price', label: 'Ціни' },
 ];
 
 export default function Header() {
