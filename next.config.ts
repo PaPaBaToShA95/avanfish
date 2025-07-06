@@ -1,11 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  basePath: '/avanfish',
-  assetPrefix: '/avanfish/', 
+  experimental: {
+    scrollRestoration: false, // Вимкнути автоматичну прокрутку
+  },
   images: {
     unoptimized: true,
   },
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: '**',
+    },
+  ],
 };
 
 module.exports = nextConfig;
