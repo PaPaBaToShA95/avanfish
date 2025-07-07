@@ -14,7 +14,7 @@ export default function AboutPage() {
             transition: {
                 delay: i * 0.2,
                 duration: 0.6,
-                ease: "easeOut"
+                ease: "easeOut" as const,
             }
         })
     };
@@ -142,7 +142,7 @@ export default function AboutPage() {
                             <div className="flex items-start gap-4">
                                 <Phone size={28} className="text-primary mt-1" />
                                 <div>
-                                    <h4 className="font-medium text-lg">Підтримка на зв'язку</h4>
+                                    <h4 className="font-medium text-lg">Підтримка на зв`язку</h4>
                                     <p className="text-muted-foreground">
                                         Ми завжди поруч — від бронювання до допомоги на місці.
                                     </p>
