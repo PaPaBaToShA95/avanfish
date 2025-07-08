@@ -30,8 +30,12 @@ export default function TrophiesUploadPage() {
     const handleLogin = async () => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
-        } catch (error: any) {
-            setStatus('Помилка авторизації: ' + error.message);
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                setStatus('Помилка авторизації: ' + error.message);
+            } else {
+                setStatus('Невідома помилка авторизації.');
+            }
         }
     };
 
@@ -52,8 +56,12 @@ export default function TrophiesUploadPage() {
             });
             setStatus('Трофей успішно додано!');
             setMediaUrl('');
-        } catch (error: any) {
-            setStatus('Помилка при додаванні: ' + error.message);
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                setStatus('Помилка додавання трофею: ' + error.message);
+            } else {
+                setStatus('Невідома помилка при додаванні трофею.');
+            }
         }
     };
 
