@@ -119,7 +119,7 @@ export default function AboutPage() {
                     variants={fadeInUp}
                 >
                     <h2 className="text-2xl font-semibold text-center mb-8">Інфраструктура</h2>
-                    <div className="grid md:grid-cols-2 gap-10 items-start">
+                    <div className="grid md:grid-cols-2 gap-10 items-center">
                         <div className="space-y-4">
                             <div className="flex items-start gap-4">
                                 <TentTree size={28} className="text-primary mt-1" />
@@ -150,7 +150,7 @@ export default function AboutPage() {
                             </div>
                         </div>
                         <Image
-                            src="/infrastructure.jpg"
+                            src="/22.jpg"
                             alt="Інфраструктура озера"
                             width={600}
                             height={400}

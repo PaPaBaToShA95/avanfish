@@ -1,5 +1,6 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from 'firebase/auth';
 
 // Ваша конфігурація Firebase з .env.local або вставлена напряму
 const firebaseConfig = {
@@ -16,3 +17,4 @@ const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0
 const db = getFirestore(app);
 
 export { app, db };
+export const auth = getAuth(app);

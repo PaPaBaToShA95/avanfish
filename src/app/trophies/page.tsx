@@ -10,20 +10,18 @@ import {
     DialogContent,
     DialogHeader,
     DialogTitle,
-    DialogDescription,
 } from '@/components/ui/dialog';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Skeleton } from '@/components/ui/skeleton';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
-// Тип
 interface Trophy {
     id: string;
-    description: string;
     mediaUrl: string;
 }
 
-// Анімації
 const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -45,6 +43,7 @@ const modalFade = {
 export default function TrophiesPage() {
     const [trophies, setTrophies] = useState<Trophy[]>([]);
     const [selectedTrophy, setSelectedTrophy] = useState<Trophy | null>(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -54,7 +53,7 @@ export default function TrophiesPage() {
                 const trophiesData = querySnapshot.docs.map(
                     (doc: QueryDocumentSnapshot<DocumentData>) => ({
                         id: doc.id,
-                        ...doc.data(),
+                        mediaUrl: doc.data().mediaUrl,
                     })
                 ) as Trophy[];
                 setTrophies(trophiesData);
@@ -67,8 +66,24 @@ export default function TrophiesPage() {
         fetchTrophies();
     }, []);
 
-    const handleOpenDialog = (trophy: Trophy) => setSelectedTrophy(trophy);
+    const handleOpenDialog = (trophy: Trophy, index: number) => {
+        setSelectedTrophy(trophy);
+        setCurrentIndex(index);
+    };
+
     const handleCloseDialog = () => setSelectedTrophy(null);
+
+    const handleNext = () => {
+        const nextIndex = (currentIndex + 1) % trophies.length;
+        setSelectedTrophy(trophies[nextIndex]);
+        setCurrentIndex(nextIndex);
+    };
+
+    const handlePrev = () => {
+        const prevIndex = (currentIndex - 1 + trophies.length) % trophies.length;
+        setSelectedTrophy(trophies[prevIndex]);
+        setCurrentIndex(prevIndex);
+    };
 
     return (
         <div className="container mx-auto p-4 md:p-8">
@@ -113,13 +128,13 @@ export default function TrophiesPage() {
                         >
                             <Card
                                 className="overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
-                                onClick={() => handleOpenDialog(trophy)}
+                                onClick={() => handleOpenDialog(trophy, index)}
                             >
                                 <CardContent className="p-0">
                                     <AspectRatio ratio={4 / 3}>
                                         <Image
                                             src={trophy.mediaUrl}
-                                            alt={trophy.description}
+                                            alt="Трофей"
                                             fill
                                             className="object-cover"
                                             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
@@ -135,28 +150,67 @@ export default function TrophiesPage() {
             <AnimatePresence>
                 {selectedTrophy && (
                     <Dialog open={!!selectedTrophy} onOpenChange={handleCloseDialog}>
-                        <DialogContent asChild forceMount>
+                        <DialogContent
+                            forceMount
+                            className="max-w-[95vw] w-full max-h-[95vh] h-full sm:max-w-[90vw] sm:max-h-[90vh]"
+                        >
                             <motion.div
                                 variants={modalFade}
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
-                                className="max-w-4xl w-full h-auto max-h-[90vh] flex flex-col bg-background rounded-lg shadow-xl overflow-hidden"
+                                className="w-full h-full flex flex-col"
                             >
-                                <DialogHeader className="flex-shrink-0 p-4">
-                                    <DialogTitle>Перегляд трофею</DialogTitle>
+                                <DialogHeader>
+                                    <DialogTitle>Фото трофею ({currentIndex + 1}/{trophies.length})</DialogTitle>
                                 </DialogHeader>
-                                <div className="flex-grow overflow-y-auto p-4">
-                                    <Image
-                                        src={selectedTrophy.mediaUrl}
-                                        alt={selectedTrophy.description}
-                                        width={1200}
-                                        height={800}
-                                        className="w-full h-auto rounded-md object-contain"
-                                    />
-                                    <DialogDescription className="mt-4 text-lg text-center">
-                                        {selectedTrophy.description}
-                                    </DialogDescription>
+                                <div className="mt-4 flex-1 flex items-center gap-4">
+                                    <Button
+                                        variant="outline"
+                                        size="icon"
+                                        onClick={handlePrev}
+                                        className="rounded-full h-12 w-12 shrink-0 hidden sm:flex"
+                                    >
+                                        <ChevronLeft className="h-6 w-6" />
+                                    </Button>
+
+                                    <div className="relative flex-1 h-full ">
+                                        <Image
+                                            src={selectedTrophy.mediaUrl}
+                                            alt="Трофей"
+                                            fill
+                                            className="object-contain "
+                                            sizes="(max-width: 768px) 100vw, 80vw"
+                                            priority
+                                        />
+                                    </div>
+
+                                    <Button
+                                        variant="outline"
+                                        size="icon"
+                                        onClick={handleNext}
+                                        className="rounded-full h-12 w-12 shrink-0 hidden sm:flex"
+                                    >
+                                        <ChevronRight className="h-6 w-6" />
+                                    </Button>
+                                </div>
+                                <div className="flex sm:hidden justify-center gap-4 mt-4">
+                                    <Button
+                                        variant="outline"
+                                        size="icon"
+                                        onClick={handlePrev}
+                                        className="rounded-full h-12 w-12"
+                                    >
+                                        <ChevronLeft className="h-6 w-6" />
+                                    </Button>
+                                    <Button
+                                        variant="outline"
+                                        size="icon"
+                                        onClick={handleNext}
+                                        className="rounded-full h-12 w-12"
+                                    >
+                                        <ChevronRight className="h-6 w-6" />
+                                    </Button>
                                 </div>
                             </motion.div>
                         </DialogContent>

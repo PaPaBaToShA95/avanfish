@@ -24,11 +24,11 @@ const modalFade = {
 const sectorsData = [
     {
         id: 1,
-        name: 'Сектор 1 "Сонячний"',
+        name: 'Сектор 1',
         description: 'Затишний сектор на сонячній стороні озера. Ідеально для сімейного відпочинку.',
-        mainImage: '/images/sector1-main.jpg',
-        images: ['/images/sector1-a.jpg', '/images/sector1-b.jpg', '/images/sector1-c.jpg'],
-        position: { top: '25%', left: '15%' },
+        mainImage: '/images/sector1-main.jpeg',
+        images: ['/sectors/1/1.jpg', '/sectors/1/2.jpg', '/sectors/1/3.jpg'],
+        position: { top: '52%', left: '63%' },
     },
     // ...інші сектори
 ];
@@ -65,7 +65,7 @@ export default function LakeSectorsPage() {
                     onMouseLeave={() => setHoveredSector(null)}
                 >
                     <Image
-                        src="/images/lake-map.png"
+                        src="/lakemap.png"
                         alt="Карта озера"
                         width={1200}
                         height={800}
