@@ -17,12 +17,42 @@ const fadeUp = {
     }),
 };
 
+// SVG іконка для Instagram
+const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+);
+
+// SVG іконка для TikTok
+const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+    >
+        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.03-4.83-.97-6.46-2.98-1.6-1.98-2.2-4.52-1.89-6.95.22-1.72 1-3.32 2.08-4.63.99-1.2 2.34-2.14 3.82-2.61.01-1.63.01-3.25.01-4.87.01-1.58.48-3.13 1.4-4.42.95-1.31 2.42-2.28 4.04-2.68z" />
+    </svg>
+);
+
+
 export default function ContactsPage() {
     const [isPhoneDialogOpen, setIsPhoneDialogOpen] = useState(false);
 
     const phoneNumbers = [
-        { number: '+380441234567', label: '' },
-        { number: '+380501234567', label: '' }
+        { number: '+380685302083', label: '' },
     ];
 
     const handleCall = (number: string) => {
@@ -77,37 +107,43 @@ export default function ContactsPage() {
                     </motion.div>
 
                     {/* Контактна інформація */}
-                    <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={1}>
-                        <Card>
+                    <motion.div
+                        variants={fadeUp}
+                        initial="hidden"
+                        animate="visible"
+                        custom={1}
+                        className="flex flex-col"
+                    >
+                        <Card className="flex-grow flex flex-col">
                             <CardHeader>
                                 <CardTitle className="text-2xl">Наші контакти</CardTitle>
                             </CardHeader>
-                            <CardContent className="space-y-6">
+                            <CardContent className="space-y-6 flex-grow">
                                 {/* Адреса */}
                                 <div className="flex items-start gap-4">
-                                    <div className="bg-primary/10 p-3 rounded-full">
+                                    <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
                                         <MapPin className="w-6 h-6 text-primary" />
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-lg">Адреса</h3>
                                         <p
-                                            className="text-muted-foreground cursor-pointer"
+                                            className="text-muted-foreground cursor-pointer group"
                                             onClick={() => {
                                                 const address = encodeURIComponent("50.719527, 30.783984");
-                                                const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${address}`;
+                                                const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
                                                 window.open(googleMapsUrl, '_blank');
                                             }}
                                         >
                                             Літки, Броварський район, Київська область
                                             <br />
-                                            <span className='text-black underline'>Маршрут</span>
+                                            <span className='text-primary underline group-hover:text-primary/80 transition-colors'>Прокласти маршрут</span>
                                         </p>
                                     </div>
                                 </div>
 
                                 {/* Телефони */}
                                 <div className="flex items-start gap-4">
-                                    <div className="bg-primary/10 p-3 rounded-full">
+                                    <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
                                         <Phone className="w-6 h-6 text-primary" />
                                     </div>
                                     <div>
@@ -115,7 +151,7 @@ export default function ContactsPage() {
                                         {phoneNumbers.map((item, index) => (
                                             <p
                                                 key={index}
-                                                className="text-muted-foreground hover:text-primary cursor-pointer"
+                                                className="text-muted-foreground hover:text-primary cursor-pointer transition-colors"
                                                 onClick={() => handleCall(item.number)}
                                             >
                                                 {item.number}
@@ -126,7 +162,7 @@ export default function ContactsPage() {
 
                                 {/* Графік */}
                                 <div className="flex items-start gap-4">
-                                    <div className="bg-primary/10 p-3 rounded-full">
+                                    <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
                                         <Clock className="w-6 h-6 text-primary" />
                                     </div>
                                     <div>
@@ -135,23 +171,65 @@ export default function ContactsPage() {
                                     </div>
                                 </div>
                             </CardContent>
-                            <CardFooter className="flex justify-center">
-                                <Button
-                                    variant="outline"
-                                    className="w-full gap-2"
-                                    onClick={() => setIsPhoneDialogOpen(true)}
-                                >
-                                    <Phone className="w-5 h-5" />
-                                    Зателефонуйте нам
-                                </Button>
-                            </CardFooter>
                         </Card>
                     </motion.div>
                 </div>
-
+                <motion.div
+                    variants={fadeUp}
+                    initial="hidden"
+                    animate="visible"
+                    custom={1}
+                    className="flex flex-col"
+                >
+                <div className="mt-12 flex justify-center">
+                    <div className="flex items-center gap-4">
+                <Card className="w-full max-w-md">
+                        <CardHeader>
+                            <CardTitle className="text-2xl text-center">Соціальні мережі</CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-center">
+                            <p className="text-muted-foreground mb-4">
+                                Слідкуйте за нами в соціальних мережах, щоб бути в курсі всіх новин та акцій!
+                            </p>
+                        </CardContent>
+                        <CardFooter className="flex-col sm:flex-row gap-4 pt-6">
+                            <a
+                                href="https://www.instagram.com/avanfish_club?igsh=aDUzZDdsYXhib2Vm"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full"
+                            >
+                                <Button
+                                    variant="outline"
+                                    className="w-full gap-3 text-lg py-6 group hover:bg-gradient-to-r hover:from-pink-500 hover:via-red-500 hover:to-yellow-500 hover:text-white transition-all duration-300"
+                                >
+                                    <InstagramIcon className="w-24 h-24 transition-transform duration-300 group-hover:scale-110" />
+                                    Instagram
+                                </Button>
+                            </a>
+                            <a
+                                href="https://www.tiktok.com/@nestor_mahno87?_t=ZM-8xsgXSPKIru&_r=1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full"
+                            >
+                                <Button
+                                    variant="outline"
+                                    className="w-full gap-3 text-lg py-6 group hover:bg-black hover:text-white transition-all duration-300"
+                                >
+                                    <TikTokIcon className="w-24 h-24 text-black group-hover:text-white transition-colors duration-300 group-hover:scale-110" />
+                                    TikTok
+                                </Button>
+                            </a>
+                        </CardFooter>
+                    </Card>
+                    
+                    </div>
+                </div>
+                </motion.div>
                 {/* Мапа з анімацією */}
                 <motion.div
-                    className="mt-12 rounded-lg overflow-hidden"
+                    className="mt-12 rounded-lg overflow-hidden shadow-lg"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.7 }}
@@ -164,6 +242,7 @@ export default function ContactsPage() {
                         allowFullScreen
                         loading="lazy"
                         className="rounded-lg"
+                        referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </motion.div>
 
@@ -178,13 +257,13 @@ export default function ContactsPage() {
                                 <Button
                                     key={index}
                                     variant="outline"
-                                    className="w-full justify-start gap-2"
+                                    className="w-full justify-start gap-4 p-4 h-auto"
                                     onClick={() => handleCall(item.number)}
                                 >
-                                    <Phone className="w-10 h-10" />
+                                    <Phone className="w-8 h-8 text-primary" />
                                     <div className="text-left flex flex-col">
-                                        <div>{item.label}</div>
-                                        <div className="text-sm font-mono">{item.number}</div>
+                                        {item.label && <div className="text-base">{item.label}</div>}
+                                        <div className="text-lg font-semibold">{item.number}</div>
                                     </div>
                                 </Button>
                             ))}

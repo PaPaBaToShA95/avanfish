@@ -68,6 +68,12 @@ export default function TrophiesUploadPage() {
     return (
         <div className="container mx-auto p-6 max-w-xl">
             <h1 className="text-3xl font-bold mb-6 text-center">Завантаження трофеїв</h1>
+            <p className="text-sm text-muted-foreground text-center">
+                Завантажте зображення ваших трофеїв, додайте ПРЯМЕ посилання на зображення у поле нижче у форматі:
+                <br />
+                <code className="bg-muted px-2 py-1 rounded">https://example.com/image.jpg</code>   
+            </p>
+            <br />
 
             {!user ? (
                 <Card>
