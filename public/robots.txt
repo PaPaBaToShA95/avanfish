@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://avanfish.vercel.app
+
+# Sitemaps
+Sitemap: https://avanfish.vercel.app/sitemap.xml

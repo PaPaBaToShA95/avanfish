@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const navItems = [
     { href: '/', label: 'Головна' },
@@ -20,9 +21,18 @@ export default function Header() {
 
     return (
         <header className="bg-background text-foreground border-b shadow-sm sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <Link href="/" className="text-2xl font-semibold text-primary">
-                    AvanFISH
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
+                <Link href="/" className="flex-shrink-0">
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24">
+                        <Image
+                            src="/logo.png"
+                            alt="Logo"
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
+                            priority
+                        />
+                    </div>
                 </Link>
 
                 {/* Mobile burger */}
