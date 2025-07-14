@@ -15,6 +15,13 @@ const nextConfig = {
           { key: "Access-Control-Allow-Origin", value: "*" },
         ],
       },
+      {
+        source: "/sitemap-:path*.xml", // Додаємо для всіх sitemap-файлів (sitemap-0.xml, sitemap-1.xml тощо)
+        headers: [
+          { key: "Content-Type", value: "application/xml" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
     ];
   },
 };
