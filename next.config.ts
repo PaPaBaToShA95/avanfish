@@ -1,17 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    scrollRestoration: false, // Вимкнути автоматичну прокрутку
+    scrollRestoration: false,
   },
   images: {
     unoptimized: true,
   },
-  remotePatterns: [
-    {
-      protocol: 'https',
-      hostname: '**',
-    },
-  ],
+  async headers() {
+    return [
+      {
+        source: "/sitemap.xml",
+        headers: [
+          { key: "Content-Type", value: "application/xml" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
