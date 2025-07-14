@@ -1,20 +1,10 @@
 import type { Metadata } from 'next';
-
-// URL вашого сайту. ОБОВ'ЯЗКОВО замініть цей placeholder на справжню адресу вашого сайту,
-// коли ви його опублікуєте на Vercel.
 const siteUrl = 'https://avanfish.vercel.app/';
 
 export const metadata: Metadata = {
-    // Основний заголовок сайту. З'являється у вкладці браузера та в результатах пошуку.
-    // Він має бути коротким, зрозумілим і містити ключові слова.
+
     title: 'AvanFish | Спортивна рибалка та відпочинок в Літках (Броварський район)',
-
-    // Опис сайту. Це розширений текст, який з'являється під заголовком у пошуковій видачі.
-    // Він має зацікавити користувача та містити основні ключові слова.
     description: 'Запрошуємо на трофейну та спортивну рибалку на озері AvanFish у селі Літки, Київська область. На вас чекає короп, щука, сом, окунь. Комфортний відпочинок на природі.',
-
-    // Ключові слова для пошукових систем.
-    // Допомагають роботам зрозуміти тематику вашого сайту.
     keywords: [
         'AvanFish',
         'АванФіш',
@@ -31,13 +21,8 @@ export const metadata: Metadata = {
         'рибальське місце',
         'Avan Fish Litky',
     ],
-
-    // Інформація про авторів сайту.
     authors: [{ name: 'AvanFish', url: siteUrl }],
     creator: 'AvanFish',
-
-    // Налаштування для роботів-індексаторів (Google, Bing тощо).
-    // 'index, follow' дозволяє їм індексувати сторінку та переходити за посиланнями.
     robots: {
         index: true,
         follow: true,
@@ -50,19 +35,15 @@ export const metadata: Metadata = {
         },
     },
 
-    // Метадані для соціальних мереж (протокол Open Graph).
-    // Це те, як ваш сайт буде виглядати, коли хтось ділиться посиланням у Facebook, Telegram, Viber тощо.
     openGraph: {
         title: 'AvanFish | Незабутня рибалка під Києвом',
         description: 'Озеро AvanFish в Літках – ідеальне місце для спортивної риболовлі та відпочинку.',
         url: siteUrl,
         siteName: 'AvanFish',
-        // ОБОВ'ЯЗКОВО замініть це посилання на зображення.
-        // Це має бути яскраве фото вашого озера, риби або рибалок.
-        // Рекомендований розмір: 1200x630 пікселів.
+   
         images: [
             {
-                url: `${siteUrl}/og-image.jpg`, // Приклад: https://your-avanfish-site.vercel.app/og-image.jpg
+                url: `https://avanfish.vercel.app/22.jpg`, 
                 width: 1200,
                 height: 630,
                 alt: 'Рибалка на озері AvanFish',
@@ -72,27 +53,23 @@ export const metadata: Metadata = {
         type: 'website',
     },
 
-    // Метадані для Twitter.
-    // Схоже на Open Graph, але спеціально для Twitter.
+ 
     twitter: {
         card: 'summary_large_image',
         title: 'AvanFish | Спортивна рибалка та відпочинок в Літках',
         description: 'Приїжджайте на трофейну рибалку в AvanFish! Короп, щука, сом та багато іншого.',
-        // ОБОВ'ЯЗКОВО замініть це посилання на те саме зображення, що і для openGraph.
-        images: [`${siteUrl}/twitter-image.jpg`], // Приклад: https://your-avanfish-site.vercel.app/twitter-image.jpg
+ 
+        images: [`https://avanfish.vercel.app/22.jpg`], 
     },
 
-    // Вказує канонічну (основну) URL-адресу сторінки.
-    // Це важливо для уникнення дублювання контенту в пошукових системах.
     alternates: {
         canonical: siteUrl,
     },
 
-    // Іконки сайту (favicon).
-    // Переконайтеся, що ці файли знаходяться у вашій папці /public.
+  
     icons: {
-        icon: '/favicon.ico',
-        shortcut: '/favicon-16x16.png',
-        apple: '/apple-touch-icon.png',
+        icon: '/favicon.png',
+        shortcut: '/22.jpg',
+        apple: '/22.jpg',
     },
 };
