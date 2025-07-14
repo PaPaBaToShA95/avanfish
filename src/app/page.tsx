@@ -5,6 +5,7 @@ import { MapPin, Fish, Trophy, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 0) => ({

@@ -2,6 +2,7 @@ import './globals.css'
 import { Metadata } from 'next'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'Аванфіш – Риболовне озеро',
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="google-site-verification" content="kuam1l4SDg0ADzKRQGGUowbl1dehl0rVFKVj0UNa-g0" />
         <link rel="icon" type="image/x-icon" href="/logo.png" />
       </head>
+      <Analytics />
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
