@@ -84,6 +84,9 @@ export default function TrophiesPage() {
         setSelectedTrophy(trophies[prevIndex]);
         setCurrentIndex(prevIndex);
     };
+    useEffect(() => {
+        document.title = 'Трофеї — Аванфіш';
+    }, []);
 
     return (
         <div className="container mx-auto p-4 md:p-8">

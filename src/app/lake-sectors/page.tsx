@@ -90,6 +90,9 @@ export default function LakeSectorsPage() {
     };
 
     const closeModal = () => setSelectedSector(null);
+    useEffect(() => {
+        document.title = 'Мапа озера і сектори — Аванфіш';
+    }, []);
 
     return (
         <div className="w-full min-h-screen bg-background p-4 sm:p-8 text-foreground">

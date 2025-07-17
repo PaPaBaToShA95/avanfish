@@ -7,3 +7,4 @@ Host: https://avanfish.vercel.app
 
 # Sitemaps
 Sitemap: https://avanfish.vercel.app/sitemap.xml
+Sitemap: https://avanfish.vercel.app/sitemap-0.xml

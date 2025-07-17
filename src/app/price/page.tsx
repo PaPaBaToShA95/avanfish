@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/tabs";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 // Анімації
 const tabContentVariants = {
@@ -27,6 +28,9 @@ const cardFade = {
 
 export default function PricingPage() {
     const [activeTab, setActiveTab] = useState("fishing");
+    useEffect(() => {
+        document.title = 'Ціни — Аванфіш';
+    }, []);
 
     return (
         <div className="container mx-auto py-12">

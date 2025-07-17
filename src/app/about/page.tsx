@@ -1,11 +1,15 @@
 'use client';
-
+import { useEffect } from 'react';
 import { Separator } from "@/components/ui/separator";
 import { BadgeCheck, TreePalm, FishOff, TentTree, Phone, MapPin, Fish, Trophy } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+
+
+
 
 export default function AboutPage() {
     const fadeInUp = {
@@ -20,8 +24,14 @@ export default function AboutPage() {
             }
         })
     };
+    useEffect(() => {
+        document.title = 'Про нас — Аванфіш';
+    }, []);
+
 
     return (
+   
+
         <div className="min-h-screen bg-gradient-to-b from-white to-green-50">
             {/* Hero Section */}
             <section className="relative h-[60vh] w-full overflow-hidden">
@@ -236,3 +246,4 @@ export default function AboutPage() {
         </div>
     );
 }
+   

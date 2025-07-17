@@ -1,11 +1,12 @@
 'use client';
-
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Phone, MapPin, Clock, Star, MessageSquare } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { motion } from 'framer-motion';
+
 
 // Анімації
 const fadeUp = {
@@ -16,6 +17,7 @@ const fadeUp = {
         transition: { delay: custom * 0.2, duration: 0.5 }
     }),
 };
+ 
 
 // SVG іконка для Instagram
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -66,6 +68,9 @@ export default function ContactsPage() {
             '_blank'
         );
     };
+    useEffect(() => {
+        document.title = 'Контакти — Аванфіш';
+    }, []);
 
     return (
         <div className="container mx-auto px-4 py-12">
