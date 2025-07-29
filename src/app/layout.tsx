@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="google-site-verification" content="kuam1l4SDg0ADzKRQGGUowbl1dehl0rVFKVj0UNa-g0" />
         <link rel="icon" type="image/x-icon" href="/logo.png" />
+        <meta name="google-site-verification" content="LIl8erH0chQymVjxdt-Q0aXKONJP4go314TnRs7ErfI" />
       </head>
       <Analytics />
       <body className="min-h-screen flex flex-col">
