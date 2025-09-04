@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://avanfish.vercel.app
+Host: https://avanfish.com
 
 # Sitemaps
-Sitemap: https://avanfish.vercel.app/sitemap.xml
+Sitemap: https://avanfish.com/sitemap.xml
