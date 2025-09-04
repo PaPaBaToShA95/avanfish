@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: 'Аванфіш — Преміальне риболовне озеро',
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <Analytics />
       <body className="min-h-screen flex flex-col">
+        <SpeedInsights />
         <Header />
         <main className="flex-grow">
           {children}
