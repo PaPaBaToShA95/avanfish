@@ -83,7 +83,7 @@ export default function Footer() {
                 <div className="pt-6 border-t text-center text-sm">
                     <span>
                         &copy; {new Date().getFullYear()} <span className="text-foreground font-medium">AvanFISH</span>. Всі права захищено. <br />
-                        Powered by <span className="text-primary font-semibold">Oleksiy Ermantraut</span>
+                        Powered by <a href="https://t.me/PaPaBaToShA" target="_blank" className="text-blue-600 font-medium hover:underline">Oleksiy Ermantraut</a>
                     </span>
                 </div>
             </div>

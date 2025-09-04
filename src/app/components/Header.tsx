@@ -9,7 +9,7 @@ import Image from 'next/image';
 const navItems = [
     { href: '/', label: 'Головна' },
     { href: '/about', label: 'Про нас' },
-    { href: '/lake-sectors', label: 'Мапа Озера' },
+    // { href: '/lake-sectors', label: 'Мапа Озера' },
     { href: '/trophies', label: 'Трофеї' },
     { href: '/contacts', label: 'Контакти' },
     { href: '/price', label: 'Ціни' },
